@@ -28,14 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(appplicationIsActive:)
-//                                                 name:UIApplicationDidBecomeActiveNotification
-//                                               object:nil];
-//    
     [self loadContacts];
-
 }
 
 -(void)loadContacts
@@ -52,6 +45,11 @@
         
         
     } failure:^(NSString *errorString){
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(appplicationIsActive:)
+                                                     name:UIApplicationDidBecomeActiveNotification
+                                                   object:nil];
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             [SVProgressHUD dismiss];
             self.errorView.hidden = NO;
@@ -64,14 +62,14 @@
     [self loadContacts];
 }
 
-//- (void)viewWillDisappear:(BOOL)animated {
-//    [super viewWillDisappear:animated];
-//    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
-//}
-//
-//- (void)dealloc {
-//    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
-//}
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -103,12 +101,12 @@
 
 #pragma mark - Table view delegate
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     Contact *contact = [_contactsArray objectAtIndex:indexPath.row];
     NSString *phoneString = [NSString stringWithFormat:@"tel:%@",contact.phoneNumber];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneString]];
 }
+
 
 
 @end

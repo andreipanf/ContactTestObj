@@ -56,6 +56,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		74262F341D4C05B400BC60A9 /* AppDelagate */ = {
+			isa = PBXGroup;
+			children = (
+				744998C81D4BDEF70011AE0D /* AppDelegate.h */,
+				744998C91D4BDEF70011AE0D /* AppDelegate.m */,
+			);
+			name = AppDelagate;
+			sourceTree = "<group>";
+		};
+		74262F351D4C05C000BC60A9 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				744998CE1D4BDEF70011AE0D /* Main.storyboard */,
+				744998D31D4BDEF70011AE0D /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		74262F361D4C05C900BC60A9 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				744998D11D4BDEF70011AE0D /* Assets.xcassets */,
+				744998D61D4BDEF70011AE0D /* Info.plist */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
 		744998B91D4BDEF60011AE0D = {
 			isa = PBXGroup;
 			children = (
@@ -81,12 +108,9 @@
 				744998E31D4BE1E40011AE0D /* Helpers */,
 				744998EB1D4BED290011AE0D /* View */,
 				744998E71D4BED000011AE0D /* Controllers */,
-				744998C81D4BDEF70011AE0D /* AppDelegate.h */,
-				744998C91D4BDEF70011AE0D /* AppDelegate.m */,
-				744998CE1D4BDEF70011AE0D /* Main.storyboard */,
-				744998D11D4BDEF70011AE0D /* Assets.xcassets */,
-				744998D31D4BDEF70011AE0D /* LaunchScreen.storyboard */,
-				744998D61D4BDEF70011AE0D /* Info.plist */,
+				74262F341D4C05B400BC60A9 /* AppDelagate */,
+				74262F351D4C05C000BC60A9 /* Storyboards */,
+				74262F361D4C05C900BC60A9 /* Resource */,
 				744998C51D4BDEF70011AE0D /* Supporting Files */,
 			);
 			path = ContactTest;
